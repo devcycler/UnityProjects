@@ -1,0 +1,85 @@
+﻿//List of Concept Ideas
+Fast paced clicker game with a goal to get the "gold" at the end of the level
+
+
+
+
+
+//DONE LIST*************************************************
+///////different tile materials will require different number of clicks to clear			//DONE 05 April 2019
+///////have the game slowly scroll up, causing a sense of urgency in the player				//DONE 04 April 2019
+///////need to add a GameManager script to track points earned.								//DONE 05 April 2019
+///////tiles will be worth points, thicker tiles=  more points,								//DONE 06 April 2019
+///////tiles will need to be "cleared" to get the points.									//DONE 06 April 2019
+///////add level "themes" (ice world, fire world, etc)                                      //DONE 15 April 2019
+///////have it randomly select a level? or allow player to choose?
+
+//TO DO LIST-----------------------------------------------
+
+continue button with a 30second ad to continue progress?
+power ups to help the player (purchases)
+steam pockets, lava, monsters/animals that will "kill" the player
+
+have a "floating" pickaxe represent the player hitting the tiles each time? Can play the animation on the point of click
+have a limited amount of times the player can dig per day, follow up with ads to add more "lives" 
+
+eventually we can add an "elevator" type graphic to "explain" the levels?
+as the player "goes down" in the levels, the "Floor Number" would be the level
+old, wiregate style elevator opening at the start of the level
+
+needs X points per level to move on
+tiles getting to the top will subtract point values
+
+able to collect diamonds/super currency to buy power ups
+able to buy super currency
+
+add "cracking" effects to sprites when clicked
+add "dust" effect when clicked
+add "wiggle" effect when clicked
+
+
+add level "themes" (ice world, fire world, etc etc each with its own challenges and powerups)
+have it randomly select a level? or allow player to choose?
+randomly generate the scene and theme
+--------- Ice World ---------
+freeze character for 2 seconds
+ice blocks - invincible and -1 point? freeze if y > 3?
+faster speed but ice is less dense
+
+--------- Fire World ---------
+smoke/haze effect?
+lava blocks that damage and "freeze" player if touched
+
+--------- Grass World ---------
+vines?
+swamp?
+
+--------- Dark World ---------
+Tiles can randomly change their alpha? to be "invisible"
+
+--------- Lightning World ---------
+
+--------- Volcano World ---------
+magma geysers?
+--------- Water World ---------
+waterfalls?
+
+
+
+*******POWER UP IDEAS************
+super strength - one hit kills on tiles regardless of material (code: set clicks to 10 so its greater than all req. materials)
+line clear
+column clear
+tri clear (3x3)
+board clear
+slow speed (code: GameManager.singleton.tileSpeed = X)
+
+
+
+
+*********BAD THINGS**************
+steam pocket - maybe cloud player vision?!
+lava
+monster?
+cave in (all materials add  one?)
+super speed (anti power up)
