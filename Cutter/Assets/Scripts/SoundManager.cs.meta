@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5b8fdb6d621d5ec408185e97f71d99b4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - buttonClick: {fileID: 8300000, guid: 631faa4c19b3a7648892d4125ca5b25c, type: 3}
+  - cut1: {fileID: 8300000, guid: c3f7c00fa2d23aa459e530da00c5be80, type: 3}
+  - cut2: {fileID: 8300000, guid: e1226442cb15638459110b5f5ac7da41, type: 3}
+  - GameOver: {fileID: 8300000, guid: 89589e6aebfce7746a6c8291604a7c8d, type: 3}
+  - guyThrow: {fileID: 8300000, guid: 9e9222b813bb04543aeeae343013ea32, type: 3}
+  - highScore: {fileID: 8300000, guid: 2887d671b0ea1f8439036e8ec21588b7, type: 3}
+  - OutOfTime: {fileID: 8300000, guid: d4ebdaf9ccad7f84c9647062115391eb, type: 3}
+  - AlmostOutOfTime: {fileID: 8300000, guid: b88243c1201591e41814d1c8b86ea6e4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

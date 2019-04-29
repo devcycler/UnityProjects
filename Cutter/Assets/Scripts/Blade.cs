@@ -19,24 +19,27 @@ public class Blade : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
     }
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!GameOverManager.singleton.GameIsOver == true)
         {
+            if (Input.GetMouseButtonDown(0))
             {
-                StartCutting();
+                {
+                    SoundManager.singleton.Sound_RandomCut();
+                    StartCutting();
+                }
+
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                StopCutting();
             }
 
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopCutting();
-        }
-
-        if (isCutting)
-        {
-            UpdateCut();
+            if (isCutting)
+            {
+                UpdateCut();
+            }
         }
     }
 
@@ -60,7 +63,6 @@ public class Blade : MonoBehaviour
     {
         Vector2 newPosition = cam.ScreenToWorldPoint(Input.mousePosition);
         rb.position = newPosition;
-
         float velocity = (newPosition - previousPosition).magnitude * Time.deltaTime;
         if (velocity > minCuttingVelocity)
         {
@@ -69,6 +71,7 @@ public class Blade : MonoBehaviour
         {
             circleCollider.enabled = false;
         }
+
         previousPosition = newPosition;     //Updates the position
     }
 }

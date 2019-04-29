@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class FruitSpawner : MonoBehaviour
 {
-    public GameObject appleReference;
+    public GameObject guyReference;
+    public GameObject bombReference;
+    private float bombTimer;
 
     void Start()
     {
-        InvokeRepeating("SpawnFruit", 0.5f, 6);
+        InvokeRepeating("SpawnGuy", 0.5f, Random.Range(2,5));
+        Invoke("SpawnBomb", RandomBombTimer());
     }
 
-    void SpawnFruit()
+    void SpawnGuy()
     {
-        float randomFruit = Random.Range(2, 6);
-        //Debug.Log(randomFruit);
-        for (byte i = 0; i < randomFruit; i++)
+        if (!GameOverManager.singleton.GameIsOver == true)
         {
-            //Debug.Log("Spawned Fruit");
-            GameObject fruit = Instantiate(appleReference, new Vector3(Random.Range(-8, 8),-6,0), Quaternion.identity) as GameObject;
+            float randomAmountofGuys = Random.Range(2, 6);
+            for (byte i = 0; i < randomAmountofGuys; i++)
+            {
+                GameObject fruit = Instantiate(guyReference, new Vector3(Random.Range(-8, 8), -6, 0), Quaternion.identity) as GameObject;
+                SoundManager.singleton.Sound_Throw();
+            }
+        }
+    }
+    public float RandomBombTimer()
+    {
+        bombTimer = Random.Range(3, 10);
+        return bombTimer;
+    }
+    void SpawnBomb()
+    {
+        if(!GameOverManager.singleton.GameIsOver == true)
+        {
+
         }
     }
 }
