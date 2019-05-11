@@ -55,7 +55,8 @@ public class Cutter_Guy : MonoBehaviour
     {
         int index = Random.Range(0, bodyPartList.Length);
         bodyPart = bodyPartList[index];
-        Debug.Log("DISMEMBER: " + bodyPart);
+        ParticleSystem blood = bodyPart.GetComponent<ParticleSystem>();
+        blood.Play();
         tempHinge = bodyPart.AddComponent<HingeJoint2D>();
         tempHinge.enabled = false;
         BP_speedX = Random.Range(10, 20);

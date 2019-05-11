@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioClip buttonClick;
     [SerializeField] private AudioClip[] randomCuts;
+    [SerializeField] private AudioClip[] randomExplosions;
     [SerializeField] private AudioClip GameOver;
     [SerializeField] private AudioClip guyThrow;
     [SerializeField] private AudioClip highScore;
@@ -15,6 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip AlmostOutOfTime;
 
     private AudioClip cut;
+    private AudioClip exp;
     private AudioSource audioSource;
 
     //needs to be only one instance of the singleton, hence this code
@@ -43,9 +45,15 @@ public class SoundManager : MonoBehaviour
     }
     public void Sound_RandomCut()
     {
-        int index = Random.Range(0, randomCuts.Length);
-        cut = randomCuts[index];
+        int _index = Random.Range(0, randomCuts.Length);
+        cut = randomCuts[_index];
         audioSource.PlayOneShot(cut);
+    }
+    public void Sound_RandomExp()
+    {
+        int _index = Random.Range(0,randomExplosions.Length);
+        exp = randomExplosions[_index];
+        audioSource.PlayOneShot(exp);
     }
     public void Sound_GameOver()
     {

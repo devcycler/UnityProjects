@@ -17,16 +17,19 @@ public class Timer : MonoBehaviour
     void ReduceTime()
     {
         if (timeTF.text == "4")
-            {
-                SoundManager.singleton.Sound_RunningOutofTime();
-            }
+        {
+            SoundManager.singleton.Sound_RunningOutofTime();
+        }
         if (timeTF.text == "1")
         {
             SoundManager.singleton.Sound_OutofTime();
-            GameOverManager.singleton.GameOver(float.Parse(timeTF.text));
+        }
+        if (timeTF.text == "0")
+        {
+            GameOverManager.singleton.GameOver();
+            Debug.Log("TIMER SCRIPT: GameOver");
         }
         timeTF.text = (int.Parse(timeTF.text) - 1).ToString();
-        GameOverManager.singleton.GameOver(float.Parse(timeTF.text));
-       //Debug.Log(float.Parse(timeTF.text));
+        
     }
 }

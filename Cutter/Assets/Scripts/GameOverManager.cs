@@ -7,13 +7,13 @@ using UnityEngine.Advertisements;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager singleton;
-    public float GameCounter { get; set; }
+    static int loadCount = 0;
     public bool GameIsOver;
     public bool timeToShowAds = false;
     private float restartTimer;
     private float timeTF;
     Animator anim;
-
+    
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -28,31 +28,21 @@ public class GameOverManager : MonoBehaviour
         }
     }
 
-    public void GameOver(float _timer)
+    public void GameOver()
     {
-        timeTF = _timer;
-        if (timeTF < 1)
-        {
-            Debug.Log("GAME OVER MANAGER: GAME OVER TRIGGER");
-            GameIsOver = true;
-            anim.SetTrigger("GameOverTrigger");
-            GetGameCounter(1);
-        }
 
-    }
-
-    public void GetGameCounter(float valueGiven)
-    {
-        GameCounter += valueGiven;
-        PlayerPrefs.SetFloat("GameCounter",GameCounter);
-        float currentGameCounter = PlayerPrefs.GetFloat("GameCounter");
-        Debug.Log("GoM: GameCounter = " + currentGameCounter);
-        if (currentGameCounter > 2)
+        GameIsOver = true;
+        anim.SetTrigger("GameOverTrigger");
+        loadCount++;
+        Debug.Log(loadCount);
+        if (loadCount > 2)
         {
             timeToShowAds = true;
+            loadCount = 0;
+            Debug.Log("LoadCount Reset! Now = ");
+            Debug.Log(loadCount);
         }
-    } 
-
+    }
 }
 
 

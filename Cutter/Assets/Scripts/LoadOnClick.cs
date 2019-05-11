@@ -11,15 +11,21 @@ public class LoadOnClick : MonoBehaviour
         Debug.Log("Time to Show ads? = " + GameOverManager.singleton.timeToShowAds);
         if (GameOverManager.singleton.timeToShowAds)
         {
-            //Advertisement.Show();
+            Advertisement.Show();
             //Need to research what the fix for this was
         }
         SoundManager.singleton.Sound_ButtonClick();
-        SceneManager.LoadScene(0);
+        StartCoroutine(NewGame());
     }
     public void StartGame()
     {
         SceneManager.LoadScene(1);
         SoundManager.singleton.Sound_ButtonClick();
+    }
+
+    IEnumerator NewGame()
+    {
+        yield return new WaitForSeconds(0f);
+        SceneManager.LoadScene(0);
     }
 }
