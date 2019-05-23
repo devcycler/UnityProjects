@@ -41,15 +41,15 @@ public class BodyPart : MonoBehaviour
     {
         Debug.Log("NEWDISMEMBER GameObject Reference is "+ gameObject);
         bodypartRB = gameObject.AddComponent<Rigidbody2D>();
-        BP_speedX = (Random.Range(-20, 20));
-        BP_speedY = (Random.Range(0, 10)) * 3;
-        BP_speedZ = (Random.Range(-20, 90)) * 200;
+        BP_speedX = (Random.Range(-20, 20)) * 3;
+        BP_speedY = (Random.Range(0, 10)) * 10;
+        BP_speedZ = (Random.Range(0, 359));
         bodypartRB.AddForce(new Vector3(BP_speedX, BP_speedY, BP_speedZ));
         blood.Play();
         if (bodypartRB != null)
         {
             bodypartRB.AddForce(new Vector3(BP_speedX, BP_speedY, BP_speedZ));
-            //bodypartRB.GetComponent<Rigidbody2D>().AddForce(new Vector3(BP_speedX, BP_speedY, BP_speedZ));
+            bodypartRB.GetComponent<Rigidbody2D>().AddForce(new Vector3(BP_speedX, BP_speedY, BP_speedZ));
         }
     }
 }

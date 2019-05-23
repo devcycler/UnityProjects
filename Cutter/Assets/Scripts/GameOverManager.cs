@@ -27,7 +27,7 @@ public class GameOverManager : MonoBehaviour
     }
     private void Start()
     {
-        Time.timeScale = 0.6f;
+        //Time.timeScale = 0.6f;
     }
     public void GameOver()
     {

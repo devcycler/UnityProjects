@@ -16,7 +16,7 @@ public class MainMenuView : MonoBehaviour
         {
             highScore = ScoreManager.singleton.Score;
         }
-        highScoreText.text = "BEST: <color=white>" + highScore + "</color>";
+        highScoreText.text = "<color=white>" + highScore + "</color>";
     }
 }
 
