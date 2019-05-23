@@ -10,7 +10,7 @@ public class BombSpawn : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnBomb", 1f, Random.Range(2, 5));
+        InvokeRepeating("SpawnBomb", 1f, Random.Range(5, 8));
     }
 
     void SpawnBomb()

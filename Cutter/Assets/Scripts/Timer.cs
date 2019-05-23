@@ -3,14 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class Timer : MonoBehaviour
 {
-    public Text timeTF;
-    private Animator anim;
+
+    public Text timeTF; 
+    public static Timer singleton;
+
+    private void Awake()
+    {
+        if (singleton == null)
+        {
+            singleton = this;
+        }
+        else if (singleton != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
+        if (RewardedAd.WasRewarded)
+        {
+            timeTF.text = (int.Parse(timeTF.text) + 20).ToString();
+        }
         InvokeRepeating("ReduceTime", 1, 1);
     }
 
@@ -27,9 +45,11 @@ public class Timer : MonoBehaviour
         if (timeTF.text == "0")
         {
             GameOverManager.singleton.GameOver();
-            Debug.Log("TIMER SCRIPT: GameOver");
+        }
+        if (timeTF.text == "-1")
+        {
+            timeTF.text = "0";
         }
         timeTF.text = (int.Parse(timeTF.text) - 1).ToString();
-        
     }
 }

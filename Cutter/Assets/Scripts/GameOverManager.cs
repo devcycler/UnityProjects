@@ -7,12 +7,10 @@ using UnityEngine.Advertisements;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager singleton;
-    static int loadCount = 0;
+    public static int loadCount = 0;
     public bool GameIsOver;
     public bool timeToShowAds = false;
-    private float restartTimer;
-    private float timeTF;
-    Animator anim;
+    public Animator anim;
     
     private void Awake()
     {
@@ -27,28 +25,27 @@ public class GameOverManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Start()
+    {
+        Time.timeScale = 0.6f;
+    }
     public void GameOver()
     {
-
         GameIsOver = true;
         anim.SetTrigger("GameOverTrigger");
         loadCount++;
-        Debug.Log(loadCount);
+    }
+
+    public void GameOverBackToMain()
+    {
+        SoundManager.singleton.Sound_ButtonClick();
+        //Debug.Log("GOM LoadCount = " + loadCount);
         if (loadCount > 2)
         {
-            timeToShowAds = true;
             loadCount = 0;
-            Debug.Log("LoadCount Reset! Now = ");
-            Debug.Log(loadCount);
+            Advertisement.Show();
+            SceneManager.LoadScene(0);
         }
+        SceneManager.LoadScene(0);
     }
 }
-
-
-
-//need to adjust game time
-//    need to stop sound effects after game is GameOver
-//    need to figure out wtf is wrong with the background in landscape mode on the phone
-//    once the gameplay loop is finished, need to work on getting the body parts servered
-//    then add blood effects and screen splashes

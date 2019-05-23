@@ -10,7 +10,6 @@ public class FruitSpawner : MonoBehaviour
     {
         InvokeRepeating("SpawnGuy", 0.5f, Random.Range(2,5));
     }
-
     void SpawnGuy()
     {
         if (!GameOverManager.singleton.GameIsOver == true)

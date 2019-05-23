@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager singleton;
     public int Score { get; set; }
     [SerializeField] private Text scoreText;
+    [SerializeField] private Text endGameText;
 
     private void Awake()
     {
@@ -25,18 +26,18 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int valueToAdd)
     {
         Score += valueToAdd;
-        if (Score < 0)
+        int highScore = PlayerPrefs.GetInt("HighScore");
+        if (Score > highScore)
         {
-            Score = 0;
+            PlayerPrefs.SetInt("HighScore", Score);
         }
-        //Debug.Log("Score = " + Score);
         PlayerPrefs.SetInt("Score", Score);
     }
 
-    
     // Update is called once per frame
     void Update()
     {
         scoreText.text = Score.ToString();
+        endGameText.text = Score.ToString();
     }
 }
