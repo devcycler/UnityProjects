@@ -1,0 +1,11 @@
+
+=== Thu Jun 27 15:03:51 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.2d.tilemap@1.0.0
+  com.unity.2d.sprite@1.0.0
+The following packages were updated:
+  com.unity.test-framework from version 1.0.13 to 1.0.14
